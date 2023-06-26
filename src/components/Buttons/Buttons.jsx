@@ -5,11 +5,11 @@ import css from './Buttons.module.css';
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <ul className={css.options_list}>
     {options.map((option, index) => (
-      <li key={index} className={css.options_list_item}>
+      <li className={css.options_list_item} key={index}>
         <button
+          className={css.options_list_button}
           onClick={onLeaveFeedback}
           name={option}
-          className={css.options_list_button}
         >
           {option.replace(option[0], option[0].toUpperCase())}
         </button>
