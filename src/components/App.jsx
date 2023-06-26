@@ -1,8 +1,8 @@
 import React from 'react';
-import Statistics from './Statistics';
-import FeedbackOptions from './Buttons';
-import Section from './Section';
-import Notification from './Notification';
+import Statistics from './Statistics/Statistics';
+import FeedbackOptions from './Buttons/Buttons';
+import Section from './Section/Section';
+import Notification from './Notification/Notification';
 // ? // Компонент класу зі своїм стейтом, в залежності від якого працюють інші компоненти, що знаходяться в середині нього ;
 export class App extends React.Component {
   state = {
@@ -26,8 +26,9 @@ export class App extends React.Component {
   };
   // ? // Рендер усіх компонентів ;
   render() {
+    const { good, neutral, bad } = this.state;
     return (
-      <div>
+      <div className="App">
         <Section title="Please, leave your feedback!">
           <FeedbackOptions
             options={Object.keys(this.state)}
@@ -35,11 +36,11 @@ export class App extends React.Component {
           ></FeedbackOptions>
         </Section>
         <Section title="Statistics">
-          {this.state.good || this.state.neutral || this.state.bad ? (
+          {good || neutral || bad ? (
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               countTotalFeedback={this.countTotalFeedback}
               countPositiveFeedbackPercentage={
                 this.countPositiveFeedbackPercentage

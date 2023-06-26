@@ -1,9 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import css from './Section.module.css';
 // ? // Компонент секції в який огортаються інші компоненти, та який приймає потрібний тайтл ;
 const Section = ({ title = 'Section title', children }) => (
-  <section>
-    <h2>{title}</h2>
+  <section className={css.section}>
+    <h2 className={css.section_title}>{title}</h2>
     {children}
   </section>
 );

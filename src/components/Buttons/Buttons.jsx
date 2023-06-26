@@ -1,11 +1,16 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import css from './Buttons.module.css';
 // ? // Компонент кнопок що приймає масив з опціями для рендеру, та функцію для обробки кліків ;
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
-  <ul>
+  <ul className={css.options_list}>
     {options.map((option, index) => (
-      <li key={index}>
-        <button onClick={onLeaveFeedback} name={option}>
+      <li key={index} className={css.options_list_item}>
+        <button
+          onClick={onLeaveFeedback}
+          name={option}
+          className={css.options_list_button}
+        >
           {option.replace(option[0], option[0].toUpperCase())}
         </button>
       </li>
